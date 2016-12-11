@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+ <body>
+<input style="background-color: #E5E7E9" type="Submit" value="Contacts List" onclick="contacts()">
+ <div id="mobile"></div>
+ <script src="cordova.js"></script>
+ <script type="text/javascript">
+function contacts(){
+ document.addEventListener("deviceready", init, false);
+}
+function init() {
+  navigator.contacts.find([navigator.contacts.fieldType.displayName],gotContacts,errorHandler);
+}
+function errorHandler(e) {
+ console.log("errorHandler: "+e);
+}
+
+function gotContacts(c) {
+ console.log("gotContacts, number of results "+c.length);
+
+ mobileDiv = document.querySelector("#mobile");
+
+ /* Retriving phoneNumbers */
+ for(var i=0, len=c.length; i<len; i++) {
+ if(c[i].phoneNumbers && c[i].phoneNumbers.length > 0) {
+ mobileDiv.innerHTML += "<p>"+c[i].displayName+"<br/>"+c[i].phoneNumbers[0].value+"</p>";
+ }
+ }
+}
+ </script>
+ </body>
+</html>
