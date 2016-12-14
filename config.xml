@@ -3,7 +3,7 @@
   <name>Resturant</name>
   <description>Resturant Finder</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Apache Cordova Team </author>
-  <content src="resturant.html" />
+  <content src="login.html" />
   <access origin="*" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
